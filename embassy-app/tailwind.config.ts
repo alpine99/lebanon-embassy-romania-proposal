@@ -5,7 +5,7 @@ import type { Config } from "tailwindcss";
 // (accent/emergency only) + warm ivory (base, warmer than clinical
 // government-portal grey) + subtle gold (fine dividers/focus only).
 const config: Config = {
-  darkMode: false, // an official diplomatic site should not silently
+  darkMode: "media", // an official diplomatic site should not silently
   // reinterpret national colours via a dark theme; out of scope for v1.
   content: [
     "./app/**/*.{ts,tsx}",
