@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Visible focus state everywhere — never suppressed. */
+:focus-visible {
+  outline: 3px solid theme("colors.gold.400");
+  outline-offset: 2px;
+}
+
+/* Skip link: direction-safe off-screen technique.
+   (A left:-999px style offset breaks in RTL — see project README.) */
+.skip-link {
+  position: absolute;
+  top: -60px;
+  left: 12px;
+  background: theme("colors.cedar.950");
+  color: #fff;
+  padding: 12px 20px;
+  z-index: 1000;
+  font-weight: 600;
+  border-radius: 2px;
+  transition: top 0.15s ease;
+}
+.skip-link:focus {
+  top: 12px;
+}
+html[dir="rtl"] .skip-link {
+  left: auto;
+  right: 12px;
+}
